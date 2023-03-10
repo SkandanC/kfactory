@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kfactory.widgets.interactive &#8212; kfactory  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/kfactory/widgets/interactive';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">kfactory  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">KFactory 0.5.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../klive.html">klive</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorial.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/00_geometry.html">Connect <strong>ports</strong></a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/01_references.html">References and ports</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../modules/kfactory.html">kfactory</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.add_padding.html">kfactory.add_padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.config.html">kfactory.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.events.html">kfactory.events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.generic_tech.html">kfactory.generic_tech</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.kcell.html">kfactory.kcell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.materials.html">kfactory.materials</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.pcells.html">kfactory.pcells</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.bezier.html">kfactory.pcells.bezier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.circular.html">kfactory.pcells.circular</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.dbu.html">kfactory.pcells.dbu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.euler.html">kfactory.pcells.euler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.taper.html">kfactory.pcells.taper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.waveguide.html">kfactory.pcells.waveguide</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.placer.html">kfactory.placer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.port.html">kfactory.port</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.routing.html">kfactory.routing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.electrical.html">kfactory.routing.electrical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.manhattan.html">kfactory.routing.manhattan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.optical.html">kfactory.routing.optical</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.types.html">kfactory.types</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.utils.html">kfactory.utils</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.utils.geo.html">kfactory.utils.geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.utils.violations.html">kfactory.utils.violations</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.widgets.html">kfactory.widgets</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.widgets.interactive.html">kfactory.widgets.interactive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/klayout.db.html">klayout.db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/klayout.lay.html">klayout.lay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CHANGELOG.html">CHANGELOG</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gdsfactory/kfactory" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gdsfactory/kfactory/issues/new?title=Issue%20on%20page%20%2F_modules/kfactory/widgets/interactive.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for kfactory.widgets.interactive</h1><div class="highlight"><pre>
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+    <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Timer</span>
+    <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
+
+    <span class="kn">import</span> <span class="nn">klayout.lay</span> <span class="k">as</span> <span class="nn">lay</span>
+    <span class="kn">from</span> <span class="nn">ipyevents</span> <span class="kn">import</span> <span class="n">Event</span>  <span class="c1"># type: ignore[import]</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>  <span class="c1"># type: ignore[import]</span>
+    <span class="kn">from</span> <span class="nn">ipytree</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Tree</span>  <span class="c1"># type: ignore[import]</span>
+    <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="p">(</span>  <span class="c1"># type: ignore[import]</span>
+        <span class="n">HTML</span><span class="p">,</span>
+        <span class="n">Accordion</span><span class="p">,</span>
+        <span class="n">AppLayout</span><span class="p">,</span>
+        <span class="n">Box</span><span class="p">,</span>
+        <span class="n">Button</span><span class="p">,</span>
+        <span class="n">HBox</span><span class="p">,</span>
+        <span class="n">Image</span><span class="p">,</span>
+        <span class="n">Label</span><span class="p">,</span>
+        <span class="n">Layout</span><span class="p">,</span>
+        <span class="n">Output</span><span class="p">,</span>
+        <span class="n">RadioButtons</span><span class="p">,</span>
+        <span class="n">Tab</span><span class="p">,</span>
+        <span class="n">ToggleButtons</span><span class="p">,</span>
+        <span class="n">VBox</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">kdb</span><span class="p">,</span> <span class="n">lay</span>
+    <span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">logger</span>
+    <span class="kn">from</span> <span class="nn">..kcell</span> <span class="kn">import</span> <span class="n">CplxKCell</span><span class="p">,</span> <span class="n">KCell</span><span class="p">,</span> <span class="n">KLib</span>
+
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You need install jupyter notebook plugin with `pip install kfactory[ipy]`&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">e</span>
+
+
+<div class="viewcode-block" id="display_kcell"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.display_kcell">[docs]</a><span class="k">def</span> <span class="nf">display_kcell</span><span class="p">(</span><span class="n">kc</span><span class="p">:</span> <span class="n">KCell</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">cell_dup</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dup</span><span class="p">()[</span><span class="n">kc</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">cell_dup</span><span class="o">.</span><span class="n">draw_ports</span><span class="p">()</span>
+
+    <span class="n">lw</span> <span class="o">=</span> <span class="n">LayoutWidget</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="n">cell_dup</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">lw</span><span class="o">.</span><span class="n">widget</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LayoutWidget"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget">[docs]</a><span class="k">class</span> <span class="nc">LayoutWidget</span><span class="p">:</span>
+<div class="viewcode-block" id="LayoutWidget.__init__"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cell</span><span class="p">:</span> <span class="n">KCell</span> <span class="o">|</span> <span class="n">CplxKCell</span><span class="p">,</span>
+        <span class="n">layer_properties</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">hide_unused_layers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">with_layer_selector</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">hide_unused_layers</span> <span class="o">=</span> <span class="n">hide_unused_layers</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span> <span class="o">=</span> <span class="n">lay</span><span class="o">.</span><span class="n">LayoutView</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">show_layout</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">klib</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">layer_properties</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">layer_properties</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">load_layer_props</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layer_properties</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+        <span class="n">png_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">get_screenshot_pixels</span><span class="p">()</span><span class="o">.</span><span class="n">to_png_data</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">png_data</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="n">scroll_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="n">watched_events</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wheel&quot;</span><span class="p">],</span> <span class="n">wait</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">scroll_event</span><span class="o">.</span><span class="n">on_dom_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_scroll</span><span class="p">)</span>
+
+        <span class="n">enter_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="n">watched_events</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mouseenter&quot;</span><span class="p">])</span>
+        <span class="n">leave_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="n">watched_events</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mouseleave&quot;</span><span class="p">])</span>
+        <span class="n">enter_event</span><span class="o">.</span><span class="n">on_dom_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_mouse_enter</span><span class="p">)</span>
+        <span class="n">leave_event</span><span class="o">.</span><span class="n">on_dom_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_mouse_leave</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">on_image_updated_event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span>  <span class="c1"># type: ignore[attr-defined]</span>
+
+        <span class="n">mouse_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">watched_events</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;mousedown&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mouseup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mousemove&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;contextmenu&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">wait</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">throttle_or_debounce</span><span class="o">=</span><span class="s2">&quot;debounce&quot;</span><span class="p">,</span>
+            <span class="n">prevent_default_action</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">mouse_event</span><span class="o">.</span><span class="n">on_dom_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_mouse</span><span class="p">)</span>
+
+        <span class="n">max_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">viewport_height</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">with_layer_selector</span><span class="p">:</span>
+            <span class="n">selector_tabs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_selector</span><span class="p">(</span><span class="n">max_height</span><span class="o">=</span><span class="n">max_height</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">selector_tabs</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">mode_selector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_modes</span><span class="p">(</span><span class="n">max_height</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">switch_mode</span><span class="p">(</span><span class="n">buttons</span><span class="p">:</span> <span class="n">ToggleButtons</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">switch_mode</span><span class="p">(</span><span class="n">buttons</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">AppLayout</span><span class="p">(</span>
+            <span class="n">left_sidebar</span><span class="o">=</span><span class="n">mode_selector</span><span class="p">,</span>
+            <span class="n">center</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">right_sidebar</span><span class="o">=</span><span class="n">selector_tabs</span><span class="p">,</span>
+            <span class="n">align_items</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+            <span class="n">justify_items</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">footer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span>
+            <span class="c1"># footer=mode_selector,</span>
+            <span class="n">pane_weights</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.show_cell"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.show_cell">[docs]</a>    <span class="k">def</span> <span class="nf">show_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">:</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Cell</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">active_cellview</span><span class="p">()</span><span class="o">.</span><span class="n">cell</span> <span class="o">=</span> <span class="n">cell</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">max_hier</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">add_missing_layers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">zoom_fit</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.button_toggle"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.button_toggle">[docs]</a>    <span class="k">def</span> <span class="nf">button_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">:</span> <span class="n">Button</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">button_color</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;transparent&quot;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">button_color</span> <span class="o">==</span> <span class="n">button</span><span class="o">.</span><span class="n">default_color</span><span class="p">)</span>
+            <span class="k">else</span> <span class="n">button</span><span class="o">.</span><span class="n">default_color</span>
+        <span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;button toggle&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">props</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">each_layer</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">props</span> <span class="o">==</span> <span class="n">button</span><span class="o">.</span><span class="n">layer_props</span><span class="p">:</span>
+                <span class="n">props</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">props</span><span class="o">.</span><span class="n">visible</span>
+                <span class="n">props</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">button</span><span class="o">.</span><span class="n">layer_props</span> <span class="o">=</span> <span class="n">props</span>
+                <span class="k">break</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.build_layer_toggle"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.build_layer_toggle">[docs]</a>    <span class="k">def</span> <span class="nf">build_layer_toggle</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">prop_iter</span><span class="p">:</span> <span class="n">lay</span><span class="o">.</span><span class="n">LayerPropertiesIterator</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HBox</span><span class="p">]:</span>
+        <span class="n">props</span> <span class="o">=</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
+        <span class="n">layer_color</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">props</span><span class="o">.</span><span class="n">eff_fill_color</span><span class="p">()</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="c1"># Would be nice to use LayoutView.icon_for_layer() rather than simple colored box</span>
+        <span class="n">button_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="s2">&quot;5px&quot;</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="s2">&quot;20px&quot;</span><span class="p">,</span>
+            <span class="n">border</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;solid 2px </span><span class="si">{</span><span class="n">layer_color</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">display</span><span class="o">=</span><span class="s2">&quot;block&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># prop_iter.current().visible = False</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">icon_for_layer</span><span class="p">(</span><span class="n">prop_iter</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_png_data</span><span class="p">(),</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">image_event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">watched_events</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;click&quot;</span><span class="p">])</span>
+        <span class="n">_prop</span> <span class="o">=</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">dup</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">on_layer_click</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_prop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">_prop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">visible</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">icon_for_layer</span><span class="p">(</span>
+                <span class="n">_prop</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">to_png_data</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="n">image_event</span><span class="o">.</span><span class="n">on_dom_event</span><span class="p">(</span><span class="n">on_layer_click</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">props</span><span class="o">.</span><span class="n">has_children</span><span class="p">():</span>
+            <span class="n">prop_iter</span> <span class="o">=</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">down_first_child</span><span class="p">()</span>
+            <span class="n">n_children</span> <span class="o">=</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">num_siblings</span><span class="p">()</span>
+            <span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_children</span><span class="p">):</span>
+                <span class="n">prop_iter</span> <span class="o">=</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">_layer_toggle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_layer_toggle</span><span class="p">(</span><span class="n">prop_iter</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">_layer_toggle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_layer_toggle</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">children</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">layer_label</span> <span class="o">=</span> <span class="n">Accordion</span><span class="p">([</span><span class="n">VBox</span><span class="p">(</span><span class="n">children</span><span class="p">)],</span> <span class="n">titles</span><span class="o">=</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">name</span><span class="p">,))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">active_cellview</span><span class="p">()</span><span class="o">.</span><span class="n">cell</span>
+            <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">bbox_per_layer</span><span class="p">(</span><span class="n">prop_iter</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">layer_index</span><span class="p">())</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">layer_label</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">Label</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">props</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">else</span> <span class="n">Label</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">props</span><span class="o">.</span><span class="n">source_layer</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">props</span><span class="o">.</span><span class="n">source_datatype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">HBox</span><span class="p">([</span><span class="n">Box</span><span class="p">([</span><span class="n">image</span><span class="p">]),</span> <span class="n">layer_label</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.build_modes"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.build_modes">[docs]</a>    <span class="k">def</span> <span class="nf">build_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_height</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VBox</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">clear_annotations</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="n">clear_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;clear annotations&quot;</span><span class="p">)</span>
+        <span class="n">clear_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">clear</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">zoom_fit</span><span class="p">(</span><span class="n">even</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">zoom_fit</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="n">zoom_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;zoom fit&quot;</span><span class="p">)</span>
+        <span class="n">zoom_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">zoom_fit</span><span class="p">)</span>
+
+        <span class="n">mode_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="s2">&quot;mode selection:&quot;</span><span class="p">)</span>
+
+        <span class="n">modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">mode_names</span><span class="p">()</span>
+        <span class="n">tb</span> <span class="o">=</span> <span class="n">ToggleButtons</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">modes</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">switch_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">switch_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="n">tb</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">switch_mode</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">VBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span><span class="n">clear_button</span><span class="p">,</span> <span class="n">zoom_button</span><span class="p">,</span> <span class="n">mode_label</span><span class="p">,</span> <span class="n">tb</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.build_cell_selector"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.build_cell_selector">[docs]</a>    <span class="k">def</span> <span class="nf">build_cell_selector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">:</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Cell</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Node</span><span class="p">:</span>
+        <span class="n">child_cells</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">build_cell_selector</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">active_cellview</span><span class="p">()</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">_cell</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">_cell</span> <span class="ow">in</span> <span class="n">cell</span><span class="o">.</span><span class="n">each_child_cell</span><span class="p">()</span>
+        <span class="p">]</span>
+
+        <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">show_icon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_select_cell</span><span class="p">,</span> <span class="s2">&quot;selected&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">cc</span> <span class="ow">in</span> <span class="n">child_cells</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">node</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.build_selector"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.build_selector">[docs]</a>    <span class="k">def</span> <span class="nf">build_selector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_height</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tab</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Builds a widget for toggling layer displays.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            max_height: Maximum height to set for the widget (likely the height of the pixel buffer).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">all_boxes</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">prop_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">begin_layers</span><span class="p">()</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">at_end</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">layer_toggle</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_layer_toggle</span><span class="p">(</span><span class="n">prop_iter</span><span class="p">):</span>
+                <span class="n">all_boxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_toggle</span><span class="p">)</span>
+            <span class="n">prop_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span>
+            <span class="n">max_height</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">max_height</span><span class="si">}</span><span class="s2">px&quot;</span><span class="p">,</span> <span class="n">overflow_y</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s2">&quot;block&quot;</span>
+        <span class="p">)</span>
+        <span class="n">selector</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="n">all_boxes</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="n">cells</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RadioButtons</span> <span class="o">|</span> <span class="n">Accordion</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">build_cell_selector</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">active_cellview</span><span class="p">()</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">top_cells</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">multiple_selection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stripes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># For when tabs are implemented</span>
+        <span class="n">selector_tabs</span> <span class="o">=</span> <span class="n">Tab</span><span class="p">([</span><span class="n">selector</span><span class="p">,</span> <span class="n">tree</span><span class="p">])</span>
+        <span class="n">selector_tabs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Layers&quot;</span><span class="p">)</span>
+        <span class="n">selector_tabs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Cells&quot;</span><span class="p">)</span>
+        <span class="c1"># selector_tabs.titles = (&quot;Layers&quot;,)</span>
+
+        <span class="k">return</span> <span class="n">selector_tabs</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.load_layout"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.load_layout">[docs]</a>    <span class="k">def</span> <span class="nf">load_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">layer_properties</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Loads a GDS layout.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: path for the GDS layout.</span>
+<span class="sd">            layer_properties: Optional path for the layer_properties klayout file (lyp).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">load_layout</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">max_hier</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">layer_properties</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">load_layer_props</span><span class="p">(</span><span class="n">layer_properties</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.refresh"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="n">png_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">get_screenshot_pixels</span><span class="p">()</span><span class="o">.</span><span class="n">to_png_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">png_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_modifier_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;shiftKey&quot;</span><span class="p">]</span>
+        <span class="n">alt</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;altKey&quot;</span><span class="p">]</span>
+        <span class="n">ctrl</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;ctrlKey&quot;</span><span class="p">]</span>
+        <span class="c1"># meta = event[&quot;metaKey&quot;]</span>
+
+        <span class="n">mouse_buttons</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;buttons&quot;</span><span class="p">]</span>
+
+        <span class="n">buttons</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">shift</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">ShiftKey</span>
+        <span class="k">if</span> <span class="n">alt</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">AltKey</span>
+        <span class="k">if</span> <span class="n">ctrl</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">ControlKey</span>
+
+        <span class="k">if</span> <span class="n">mouse_buttons</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">LeftButton</span>
+        <span class="k">if</span> <span class="n">mouse_buttons</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">RightButton</span>
+        <span class="k">if</span> <span class="n">mouse_buttons</span> <span class="o">&amp;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">|=</span> <span class="n">lay</span><span class="o">.</span><span class="n">ButtonState</span><span class="o">.</span><span class="n">MidButton</span>
+
+        <span class="k">return</span> <span class="n">buttons</span>
+
+<div class="viewcode-block" id="LayoutWidget.on_select_cell"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.on_select_cell">[docs]</a>    <span class="k">def</span> <span class="nf">on_select_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show_cell</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">active_cellview</span><span class="p">()</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">max_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">viewport_height</span><span class="p">()</span>
+
+        <span class="n">all_boxes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prop_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">begin_layers</span><span class="p">()</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">prop_iter</span><span class="o">.</span><span class="n">at_end</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">layer_toggle</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_layer_toggle</span><span class="p">(</span><span class="n">prop_iter</span><span class="p">):</span>
+                <span class="n">all_boxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">layer_toggle</span><span class="p">)</span>
+            <span class="n">prop_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+
+        <span class="n">tabs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">right_sidebar</span>
+        <span class="n">vbox</span> <span class="o">=</span> <span class="n">tabs</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">all_boxes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.on_scroll"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.on_scroll">[docs]</a>    <span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;deltaY&quot;</span><span class="p">])</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;relativeX&quot;</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;relativeY&quot;</span><span class="p">]</span>
+        <span class="n">buttons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_modifier_buttons</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_wheel_event</span><span class="p">(</span><span class="o">-</span><span class="n">delta</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">buttons</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.on_mouse"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.on_mouse">[docs]</a>    <span class="k">def</span> <span class="nf">on_mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;relativeX&quot;</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;relativeY&quot;</span><span class="p">]</span>
+        <span class="n">moved_x</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;movementX&quot;</span><span class="p">]</span>
+        <span class="n">moved_y</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;movementY&quot;</span><span class="p">]</span>
+        <span class="n">buttons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_modifier_buttons</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mousedown&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_mouse_press_event</span><span class="p">(</span>
+                <span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">buttons</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mouseup&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_mouse_release_event</span><span class="p">(</span>
+                <span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">buttons</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mousemove&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_mouse_move_event</span><span class="p">(</span>
+                <span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">buttons</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.on_mouse_enter"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.on_mouse_enter">[docs]</a>    <span class="k">def</span> <span class="nf">on_mouse_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_enter_event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LayoutWidget.on_mouse_leave"><a class="viewcode-back" href="../../../modules/kfactory.widgets.interactive.html#kfactory.widgets.interactive.LayoutWidget.on_mouse_leave">[docs]</a>    <span class="k">def</span> <span class="nf">on_mouse_leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">timer</span><span class="p">()</span>  <span class="c1"># type: ignore[attr-defined]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout_view</span><span class="o">.</span><span class="n">send_leave_event</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

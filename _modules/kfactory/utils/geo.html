@@ -1,0 +1,1065 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kfactory.utils.geo &#8212; kfactory  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/kfactory/utils/geo';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">kfactory  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">KFactory 0.5.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../intro.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../klive.html">klive</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorial.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/00_geometry.html">Connect <strong>ports</strong></a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../notebooks/01_references.html">References and ports</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../modules/kfactory.html">kfactory</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.add_padding.html">kfactory.add_padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.config.html">kfactory.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.events.html">kfactory.events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.generic_tech.html">kfactory.generic_tech</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.kcell.html">kfactory.kcell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.materials.html">kfactory.materials</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.pcells.html">kfactory.pcells</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.bezier.html">kfactory.pcells.bezier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.circular.html">kfactory.pcells.circular</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.dbu.html">kfactory.pcells.dbu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.euler.html">kfactory.pcells.euler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.taper.html">kfactory.pcells.taper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.pcells.waveguide.html">kfactory.pcells.waveguide</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.placer.html">kfactory.placer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.port.html">kfactory.port</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.routing.html">kfactory.routing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.electrical.html">kfactory.routing.electrical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.manhattan.html">kfactory.routing.manhattan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.routing.optical.html">kfactory.routing.optical</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../modules/kfactory.types.html">kfactory.types</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.utils.html">kfactory.utils</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.utils.geo.html">kfactory.utils.geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.utils.violations.html">kfactory.utils.violations</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../modules/kfactory.widgets.html">kfactory.widgets</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../modules/kfactory.widgets.interactive.html">kfactory.widgets.interactive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/klayout.db.html">klayout.db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modules/klayout.lay.html">klayout.lay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CHANGELOG.html">CHANGELOG</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gdsfactory/kfactory" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gdsfactory/kfactory/issues/new?title=Issue%20on%20page%20%2F_modules/kfactory/utils/geo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for kfactory.utils.geo</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">TypeGuard</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">PrivateAttr</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">kdb</span>
+<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">..kcell</span> <span class="kn">import</span> <span class="n">KCell</span><span class="p">,</span> <span class="n">LayerEnum</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;extrude_path&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extrude_path_points&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extrude_path_dynamic_points&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extrude_path_dynamic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;path_pts_to_polygon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Enclosure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Direction&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">vec_angle</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determine vector angle in increments of 90°&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;only manhattan vectors supported&quot;</span><span class="p">)</span>
+
+    <span class="k">match</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span>
+        <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">3</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2"> is not a manhattan, cannot determine direction&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">is_callable_widths</span><span class="p">(</span>
+    <span class="n">widths</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="n">callable</span><span class="p">(</span><span class="n">widths</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">clean_points</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">points</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">points</span> <span class="k">if</span> <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="n">points</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">p_p</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">del_points</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p_n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">p_n</span> <span class="o">-</span> <span class="n">p</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="n">p_p</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">v2</span><span class="o">.</span><span class="n">x</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">v2</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+        <span class="p">)</span> <span class="ow">or</span> <span class="n">v2</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">del_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">p_p</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_n</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">del_points</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">points</span>
+
+
+<span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">]:</span>
+    <span class="n">simple_pts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">points</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">e</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">dists</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">distance_abs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">]</span>
+    <span class="n">ind_dist</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dists</span><span class="p">))</span>
+    <span class="n">maxd</span> <span class="o">=</span> <span class="n">dists</span><span class="p">[</span><span class="n">ind_dist</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">[</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">maxd</span> <span class="o">&lt;=</span> <span class="n">tolerance</span>
+        <span class="k">else</span> <span class="p">(</span>
+            <span class="n">simplify</span><span class="p">(</span><span class="n">points</span><span class="p">[:</span> <span class="n">ind_dist</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">simplify</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">ind_dist</span><span class="p">:],</span> <span class="n">tolerance</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="extrude_path_points"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.extrude_path_points">[docs]</a><span class="k">def</span> <span class="nf">extrude_path_points</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">start_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrude a path from a list of points and a static width</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path: list of floating-points points</span>
+<span class="sd">        width: width in µm</span>
+<span class="sd">        start_angle: optionally specify a custom starting angle if `None` will be autocalculated from the first two elements</span>
+<span class="sd">        end_angle: optionally specify a custom ending angle if `None` will be autocalculated from the last two elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">start_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">start_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">start</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">start</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">end_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">end_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span>
+
+    <span class="n">p_start</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p_end</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">start_trans</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p_start</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p_start</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">end_trans</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">end_angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p_end</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p_end</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">vector_top</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+    <span class="n">vector_bot</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span><span class="p">)</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+
+    <span class="n">p_old</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">path</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+        <span class="n">p_new</span> <span class="o">=</span> <span class="n">point</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">p_new</span> <span class="o">-</span> <span class="n">p_old</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">transformation</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">vector_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+        <span class="n">vector_bot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+        <span class="n">p_old</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_new</span>
+
+    <span class="n">vector_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_trans</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+    <span class="n">vector_bot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_trans</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">disp</span><span class="o">.</span><span class="n">to_p</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vector_top</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">disp</span><span class="o">.</span><span class="n">to_p</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vector_bot</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="extrude_path"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.extrude_path">[docs]</a><span class="k">def</span> <span class="nf">extrude_path</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+    <span class="n">layer</span><span class="p">:</span> <span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">enclosure</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;Enclosure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">start_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrude a path from a list of points and a static width</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target: the cell where to insert the shapes to (and get the database unit from)</span>
+<span class="sd">        layer: the main layer that should be extruded</span>
+<span class="sd">        path: list of floating-points points</span>
+<span class="sd">        width: width in µm</span>
+<span class="sd">        enclosure: optoinal enclosure object, specifying necessary layers.this will extrude around the `layer`</span>
+<span class="sd">        start_angle: optionally specify a custom starting angle if `None` will be autocalculated from the first two elements</span>
+<span class="sd">        end_angle: optionally specify a custom ending angle if `None` will be autocalculated from the last two elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">layer_list</span> <span class="o">=</span> <span class="p">{</span><span class="n">layer</span><span class="p">:</span> <span class="n">LayerSection</span><span class="p">(</span><span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="n">Section</span><span class="p">(</span><span class="n">d_max</span><span class="o">=</span><span class="mi">0</span><span class="p">)])}</span>
+    <span class="k">if</span> <span class="n">enclosure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">layer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">:</span>
+            <span class="n">layer_list</span> <span class="o">|=</span> <span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">layer_list</span> <span class="o">=</span> <span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layer_sec</span> <span class="ow">in</span> <span class="n">layer_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layer_sec</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+            <span class="n">_r</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                    <span class="o">*</span><span class="n">extrude_path_points</span><span class="p">(</span>
+                        <span class="n">path</span><span class="p">,</span>
+                        <span class="n">width</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_max</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">,</span>
+                        <span class="n">start_angle</span><span class="p">,</span>
+                        <span class="n">end_angle</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">_r</span> <span class="o">-=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                    <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                        <span class="o">*</span><span class="n">extrude_path_points</span><span class="p">(</span>
+                            <span class="n">path</span><span class="p">,</span>
+                            <span class="n">width</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">,</span>
+                            <span class="n">start_angle</span><span class="p">,</span>
+                            <span class="n">end_angle</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">reg</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span>
+        <span class="n">target</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">merge</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="extrude_path_dynamic_points"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.extrude_path_dynamic_points">[docs]</a><span class="k">def</span> <span class="nf">extrude_path_dynamic_points</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+    <span class="n">widths</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">start_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrude a profile with a list of points and a list of widths</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path: list of floating-points points</span>
+<span class="sd">        width: function (from t==0 to t==1) defining a width profile for the path | list with width for the profile (needs same length as path)</span>
+<span class="sd">        start_angle: optionally specify a custom starting angle if `None` will be autocalculated from the first two elements</span>
+<span class="sd">        end_angle: optionally specify a custom ending angle if `None` will be autocalculated from the last two elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">start_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">start_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">start</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">start</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">end_angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">end_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">end</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span>
+
+    <span class="n">p_start</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p_end</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">start_trans</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p_start</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p_start</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">end_trans</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">end_angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p_end</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p_end</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">widths</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(((</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="k">for</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:])))</span>
+        <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widths</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">vector_top</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+        <span class="n">vector_bot</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+        <span class="n">p_old</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">p_old</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">path</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+            <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widths</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+            <span class="n">p_new</span> <span class="o">=</span> <span class="n">point</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">p_new</span> <span class="o">-</span> <span class="n">p_old</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+            <span class="n">transformation</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">vector_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+            <span class="n">vector_bot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+            <span class="n">z</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p_new</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+            <span class="n">p_old</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">p_new</span>
+        <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widths</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">vector_top</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+        <span class="n">vector_bot</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_trans</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">]</span>
+        <span class="n">p_old</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">point</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">widths</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+            <span class="n">p_new</span> <span class="o">=</span> <span class="n">point</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">p_new</span> <span class="o">-</span> <span class="n">p_old</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+            <span class="n">transformation</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">vector_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+            <span class="n">vector_bot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transformation</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+            <span class="n">p_old</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">p_new</span>
+        <span class="n">ref_vector</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="p">(</span><span class="n">kdb</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">widths</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">vector_top</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_trans</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+    <span class="n">vector_bot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end_trans</span> <span class="o">*</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R180</span> <span class="o">*</span> <span class="n">ref_vector</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">disp</span><span class="o">.</span><span class="n">to_p</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vector_top</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">disp</span><span class="o">.</span><span class="n">to_p</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vector_bot</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="extrude_path_dynamic"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.extrude_path_dynamic">[docs]</a><span class="k">def</span> <span class="nf">extrude_path_dynamic</span><span class="p">(</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+    <span class="n">layer</span><span class="p">:</span> <span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+    <span class="n">widths</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">enclosure</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;Enclosure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">start_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">end_angle</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrude a path with dynamic width from a list of points and a list of widths and add an enclosure if specified</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target: the cell where to insert the shapes to (and get the database unit from)</span>
+<span class="sd">        layer: the main layer that should be extruded</span>
+<span class="sd">        path: list of floating-points points</span>
+<span class="sd">        width: function (from t==0 to t==1) defining a width profile for the path | list with width for the profile (needs same length as path)</span>
+<span class="sd">        enclosure: optoinal enclosure object, specifying necessary layers.this will extrude around the `layer`</span>
+<span class="sd">        start_angle: optionally specify a custom starting angle if `None` will be autocalculated from the first two elements</span>
+<span class="sd">        end_angle: optionally specify a custom ending angle if `None` will be autocalculated from the last two elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">layer_list</span> <span class="o">=</span> <span class="p">{</span><span class="n">layer</span><span class="p">:</span> <span class="n">LayerSection</span><span class="p">(</span><span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="n">Section</span><span class="p">(</span><span class="n">d_max</span><span class="o">=</span><span class="mi">0</span><span class="p">)])}</span>
+    <span class="k">if</span> <span class="n">enclosure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">layer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">:</span>
+            <span class="n">layer_list</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ls</span> <span class="o">=</span> <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">layer_list</span> <span class="o">=</span> <span class="n">enclosure</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">layer_list</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_callable_widths</span><span class="p">(</span><span class="n">widths</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layer_sec</span> <span class="ow">in</span> <span class="n">layer_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layer_sec</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+
+                <span class="k">def</span> <span class="nf">w_max</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">widths</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_max</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span>  <span class="c1"># type: ignore[operator]</span>
+
+                <span class="n">_r</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                    <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                        <span class="o">*</span><span class="n">extrude_path_dynamic_points</span><span class="p">(</span>
+                            <span class="n">path</span><span class="p">,</span>
+                            <span class="n">w_max</span><span class="p">,</span>
+                            <span class="n">start_angle</span><span class="p">,</span>
+                            <span class="n">end_angle</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+                    <span class="k">def</span> <span class="nf">w_min</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">widths</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span>  <span class="c1"># type: ignore[operator]</span>
+
+                    <span class="n">_r</span> <span class="o">-=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                        <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                            <span class="o">*</span><span class="n">extrude_path_dynamic_points</span><span class="p">(</span>
+                                <span class="n">path</span><span class="p">,</span>
+                                <span class="n">w_min</span><span class="p">,</span>
+                                <span class="n">start_angle</span><span class="p">,</span>
+                                <span class="n">end_angle</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="n">reg</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">merge</span><span class="p">())</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layer_sec</span> <span class="ow">in</span> <span class="n">layer_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layer_sec</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">max_widths</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_max</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">]</span>  <span class="c1"># type: ignore[union-attr]</span>
+                <span class="n">_r</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                    <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                        <span class="o">*</span><span class="n">extrude_path_dynamic_points</span><span class="p">(</span>
+                            <span class="n">path</span><span class="p">,</span>
+                            <span class="n">max_widths</span><span class="p">,</span>
+                            <span class="n">start_angle</span><span class="p">,</span>
+                            <span class="n">end_angle</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">min_widths</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span> <span class="o">*</span> <span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">widths</span><span class="p">]</span>  <span class="c1"># type: ignore[union-attr]</span>
+                    <span class="n">_r</span> <span class="o">-=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span>
+                        <span class="n">path_pts_to_polygon</span><span class="p">(</span>
+                            <span class="o">*</span><span class="n">extrude_path_dynamic_points</span><span class="p">(</span>
+                                <span class="n">path</span><span class="p">,</span>
+                                <span class="n">min_widths</span><span class="p">,</span>
+                                <span class="n">start_angle</span><span class="p">,</span>
+                                <span class="n">end_angle</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">to_itype</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">klib</span><span class="o">.</span><span class="n">dbu</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="n">reg</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">merge</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="path_pts_to_polygon"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.path_pts_to_polygon">[docs]</a><span class="k">def</span> <span class="nf">path_pts_to_polygon</span><span class="p">(</span>
+    <span class="n">pts_top</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span> <span class="n">pts_bot</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DPolygon</span><span class="p">:</span>
+    <span class="n">pts_bot</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">kdb</span><span class="o">.</span><span class="n">DPolygon</span><span class="p">(</span><span class="n">pts_top</span> <span class="o">+</span> <span class="n">pts_bot</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">is_Region</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_int</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_callable</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]]:</span>
+    <span class="k">return</span> <span class="n">callable</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Direction"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Direction">[docs]</a><span class="k">class</span> <span class="nc">Direction</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">BOTH</span> <span class="o">=</span> <span class="mi">3</span></div>
+
+
+<span class="k">class</span> <span class="nc">Section</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">d_min</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">d_max</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">d_min</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_max</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">LayerSection</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">sections</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Section</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sec</span><span class="p">:</span> <span class="n">Section</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sec</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_min</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">d_max</span><span class="p">:</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_max</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">d_min</span><span class="p">:</span>  <span class="c1"># type: ignore[operator]</span>
+                    <span class="n">sec</span><span class="o">.</span><span class="n">d_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">d_max</span><span class="p">,</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_max</span><span class="p">)</span>
+                    <span class="n">sec</span><span class="o">.</span><span class="n">d_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">d_min</span><span class="p">,</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_min</span><span class="p">)</span>  <span class="c1"># type: ignore[type-var]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">):</span>
+                        <span class="k">break</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sec</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">tuple</span><span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">d_min</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">d_max</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="Enclosure"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure">[docs]</a><span class="k">class</span> <span class="nc">Enclosure</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">layer_sections</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="n">LayerSection</span><span class="p">]</span>
+    <span class="n">_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">PrivateAttr</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">warn</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">main_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span>
+
+    <span class="n">yaml_tag</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;!Enclosure&quot;</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">validate_assignment</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="Enclosure.__init__"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sections</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span>
+            <span class="nb">tuple</span><span class="p">[</span><span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">warn</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">main_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">warn</span><span class="o">=</span><span class="n">warn</span><span class="p">,</span>
+            <span class="n">layer_sections</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">main_layer</span><span class="o">=</span><span class="n">main_layer</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sections</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">sec</span><span class="p">:</span> <span class="p">(</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">:</span>
+                <span class="n">ls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">[</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ls</span> <span class="o">=</span> <span class="n">LayerSection</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">[</span><span class="n">sec</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ls</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">Section</span><span class="p">(</span><span class="n">d_max</span><span class="o">=</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sec</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">ls</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span>
+                <span class="n">Section</span><span class="p">(</span><span class="n">d_max</span><span class="o">=</span><span class="n">sec</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">d_min</span><span class="o">=</span><span class="n">sec</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># type:ignore[misc]</span>
+            <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>  <span class="c1"># make hashable BaseModel subclass</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span>
+            <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_layer</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;Enclosure&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Enclosure&quot;</span><span class="p">:</span>
+        <span class="n">enc</span> <span class="o">=</span> <span class="n">Enclosure</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">secs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">secs</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">enc</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">sec</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">secs</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">secs</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">enc</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">sec</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">enc</span>
+
+    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;Enclosure&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Enclosure&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">secs</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">secs</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">sec</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="Enclosure.add_section"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.add_section">[docs]</a>    <span class="k">def</span> <span class="nf">add_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">LayerEnum</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="n">sec</span><span class="p">:</span> <span class="n">Section</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span>
+
+        <span class="k">if</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">sec</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span> <span class="o">=</span> <span class="n">LayerSection</span><span class="p">(</span><span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="n">sec</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span> <span class="o">=</span> <span class="n">d</span>  <span class="c1"># trick pydantic to validate</span></div>
+
+<div class="viewcode-block" id="Enclosure.minkowski_region"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.minkowski_region">[docs]</a>    <span class="k">def</span> <span class="nf">minkowski_region</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">r</span><span class="p">:</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">,</span>
+        <span class="n">d</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">shape</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">Point</span><span class="p">]</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Box</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Polygon</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">dup</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">minkowski_sum</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_shape</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_shape</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">box_shape</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">_shape</span><span class="p">)</span>
+                <span class="n">bbox_maxsize</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                    <span class="n">box_shape</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                    <span class="n">box_shape</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bbox_maxsize</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                    <span class="n">_shape</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span>
+                    <span class="n">_shape</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span>
+                <span class="p">)</span>
+            <span class="n">bbox_r</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">enlarged</span><span class="p">(</span><span class="n">bbox_maxsize</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">r</span> <span class="o">-</span> <span class="p">(</span><span class="n">bbox_r</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">minkowski_sum</span><span class="p">(</span><span class="n">_shape</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_minkowski_enc"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_minkowski_enc">[docs]</a>    <span class="k">def</span> <span class="nf">apply_minkowski_enc</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+        <span class="n">ref</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">],</span>  <span class="c1"># layer index or the region</span>
+        <span class="n">direction</span><span class="p">:</span> <span class="n">Direction</span> <span class="o">=</span> <span class="n">Direction</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">match</span> <span class="n">direction</span><span class="p">:</span>
+            <span class="k">case</span> <span class="n">Direction</span><span class="o">.</span><span class="n">BOTH</span><span class="p">:</span>
+
+                <span class="k">def</span> <span class="nf">box</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Box</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">apply_minkowski_custom</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">box</span><span class="p">)</span>
+
+            <span class="k">case</span> <span class="n">Direction</span><span class="o">.</span><span class="n">Y</span><span class="p">:</span>
+
+                <span class="k">def</span> <span class="nf">edge</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">apply_minkowski_custom</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">edge</span><span class="p">)</span>
+
+            <span class="k">case</span> <span class="n">Direction</span><span class="o">.</span><span class="n">X</span><span class="p">:</span>
+
+                <span class="k">def</span> <span class="nf">edge</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">apply_minkowski_custom</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">edge</span><span class="p">)</span>
+
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Undefined direction&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_minkowski_y"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_minkowski_y">[docs]</a>    <span class="k">def</span> <span class="nf">apply_minkowski_y</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span> <span class="n">ref</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_minkowski_enc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_minkowski_x"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_minkowski_x">[docs]</a>    <span class="k">def</span> <span class="nf">apply_minkowski_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span> <span class="n">ref</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_minkowski_enc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">X</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_minkowski_custom"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_minkowski_custom">[docs]</a>    <span class="k">def</span> <span class="nf">apply_minkowski_custom</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+        <span class="n">shape</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">],</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Box</span><span class="p">],</span>
+        <span class="n">ref</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ref</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_layer</span>
+
+        <span class="k">if</span> <span class="n">ref</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The enclosure doesn&#39;t have  a reference `main_layer` defined. Therefore the layer must be defined in calls&quot;</span>
+            <span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">begin_shapes_rec</span><span class="p">(</span><span class="n">ref</span><span class="p">))</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">ref</span><span class="o">.</span><span class="n">dup</span><span class="p">()</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">merge</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layersec</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">layersec</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">c</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">minkowski_region</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">section</span><span class="o">.</span><span class="n">d_max</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+                    <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">minkowski_region</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">section</span><span class="o">.</span><span class="n">d_min</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+                <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_custom"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_custom">[docs]</a>    <span class="k">def</span> <span class="nf">apply_custom</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+        <span class="n">shape</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span>
+            <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Edge</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Box</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span>
+        <span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layersec</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">sec</span> <span class="ow">in</span> <span class="n">layersec</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+                <span class="n">c</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">sec</span><span class="o">.</span><span class="n">d_max</span><span class="p">,</span> <span class="n">sec</span><span class="o">.</span><span class="n">d_min</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Enclosure.apply_bbox"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.apply_bbox">[docs]</a>    <span class="k">def</span> <span class="nf">apply_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span> <span class="n">ref</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">is_int</span><span class="p">(</span><span class="n">ref</span><span class="p">):</span>
+            <span class="n">_ref</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">bbox_per_layer</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">is_Region</span><span class="p">(</span><span class="n">ref</span><span class="p">):</span>
+            <span class="n">_ref</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">bbox_reg</span><span class="p">(</span><span class="n">d_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">d_min</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">:</span>
+            <span class="n">reg_max</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">_ref</span><span class="p">)</span>
+            <span class="n">reg_max</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">d_max</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">d_min</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">reg_max</span>
+            <span class="n">reg_min</span> <span class="o">=</span> <span class="n">kdb</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">_ref</span><span class="p">)</span>
+            <span class="n">reg_min</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">d_min</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">reg_max</span> <span class="o">-</span> <span class="n">reg_min</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_custom</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">bbox_reg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.to_yaml"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.to_yaml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">to_yaml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">representer</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>  <span class="c1"># type: ignore[no-untyped-def]</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">enclosures</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">representer</span><span class="o">.</span><span class="n">represent_mapping</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">yaml_tag</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">list_to_hash</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">main_layer</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">layer_section</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">list_to_hash</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">layer</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_section</span><span class="o">.</span><span class="n">sections</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="n">sha1</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">list_to_hash</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span>
+
+<div class="viewcode-block" id="Enclosure.extrude_path"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.extrude_path">[docs]</a>    <span class="k">def</span> <span class="nf">extrude_path</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+        <span class="n">main_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">LayerEnum</span><span class="p">],</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">main_layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The enclosure doesn&#39;t have  a reference `main_layer` defined. Therefore the layer must be defined in calls&quot;</span>
+            <span class="p">)</span>
+        <span class="n">extrude_path</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">main_layer</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">enclosure</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Enclosure.extrude_path_dynamic"><a class="viewcode-back" href="../../../modules/kfactory.utils.geo.html#kfactory.utils.Enclosure.extrude_path_dynamic">[docs]</a>    <span class="k">def</span> <span class="nf">extrude_path_dynamic</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">KCell</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">kdb</span><span class="o">.</span><span class="n">DPoint</span><span class="p">],</span>
+        <span class="n">main_layer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span> <span class="o">|</span> <span class="n">LayerEnum</span><span class="p">],</span>
+        <span class="n">widths</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">main_layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The enclosure doesn&#39;t have  a reference `main_layer` defined. Therefore the layer must be defined in calls&quot;</span>
+            <span class="p">)</span>
+        <span class="n">extrude_path_dynamic</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">main_layer</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">widths</span><span class="p">,</span> <span class="n">enclosure</span><span class="o">=</span><span class="bp">self</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
