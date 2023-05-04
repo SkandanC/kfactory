@@ -1,54 +1,54 @@
-"""The import order matters, we need to first import the important stuff
+"""KFactory package. Utilities for creating photonic devices.
 
-isort:skip_file
+Uses the klayout package as a backend.
+
 """
+
+# The import order matters, we need to first import the important stuff.
+# isort:skip_file
 
 import klayout.dbcore as kdb
 import klayout.lay as lay
 from .kcell import (
     KCell,
-    CplxKCell,
     Instance,
     Port,
-    DPort,
-    ICplxPort,
-    DCplxPort,
     Ports,
-    autocell,
     cell,
-    klib,
-    KLib,
+    kcl,
+    KCLayout,
     default_save,
     LayerEnum,
     show,
 )
-from . import pcells, placer, routing, utils, port
-from .config import logger
+from . import cells, placer, routing, utils, port
+from .conf import config
 
 
-__version__ = "0.5.6"
+__version__ = "0.6.3"
 
+logger = config.logger
 
 __all__ = [
     "KCell",
-    "CplxKCell",
     "Instance",
     "Port",
-    "DPort",
-    "ICplxPort",
-    "DCplxPort",
     "Ports",
     "autocell",
     "cell",
-    "klib",
-    "KLib",
+    "kcl",
+    "KCLayout",
     "default_save",
     "kdb",
-    "pcells",
+    "lay",
+    "port",
+    "cells",
     "placer",
     "routing",
     "utils",
     "show",
     "klay",
+    "config",
     "LayerEnum",
+    "logger",
 ]

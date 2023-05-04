@@ -4,11 +4,10 @@ from layers import LAYER
 import random
 
 
-@kf.autocell
+@kf.cell
 def star(
     size: float, proportion: float, n_diamonds: int = 3, layer: kf.LayerEnum = LAYER.SI
 ) -> kf.KCell:
-
     """Create a diamond star cell
 
     Args:
@@ -45,7 +44,7 @@ def star(
     return c
 
 
-@kf.autocell
+@kf.cell
 def merged_star(
     size: float, proportion: float, n_diamonds: int = 3, layer: kf.LayerEnum = LAYER.SI
 ) -> kf.KCell:
@@ -64,7 +63,7 @@ def merged_star(
     return c
 
 
-@kf.autocell
+@kf.cell
 def sky_with_stars() -> kf.KCell:
     c = kf.KCell()
 

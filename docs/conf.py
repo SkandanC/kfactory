@@ -1,5 +1,5 @@
 project = "kfactory"
-version = "0.5.6"
+version = "0.6.3"
 copyright = "2022"
 # author = "kfactory"
 
@@ -78,7 +78,7 @@ autodoc_pydantic_model_show_config_member = False
 autodoc_pydantic_model_show_config_summary = False
 autodoc_pydantic_model_show_validator_summary = False
 autodoc_pydantic_model_show_validator_members = False
-
+autodoc_typehints = "description"
 
 autodoc_default_options = {
     "member-order": "bysource",

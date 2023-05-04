@@ -1,35 +1,37 @@
-from typing import Optional
+"""Circular bends.
+
+A circular bend has a constant radius.
+"""
 
 import numpy as np
 
 from .. import kdb
-from ..kcell import KCell, LayerEnum, autocell
-from ..utils import Enclosure
-from ..utils.geo import extrude_path
+from ..kcell import KCell, LayerEnum, cell
+from ..utils import Enclosure, extrude_path
 
 __all__ = ["bend_circular"]
 
 
-@autocell
+@cell
 def bend_circular(
     width: float,
     radius: float,
     layer: int | LayerEnum,
-    enclosure: Optional[Enclosure] = None,
+    enclosure: Enclosure | None = None,
     theta: float = 90,
     theta_step: float = 1,
 ) -> KCell:
-    """Circular radius bend
+    """Circular radius bend [um].
 
     Args:
-        width: Width in database units
-        radius: Radius in database units
-        layer: Layer index of the target layer
-        enclosure: :py:class:`kfactory.utils.Enclosure` object to describe the claddings
-    Returns:
-        cell (KCell): Circular Bend KCell
+        width: Width of the core. [um]
+        radius: Radius of the backbone. [um]
+        layer: Layer index of the target layer.
+        enclosure: :py:class:`kfactory.utils.Enclosure` object to describe the
+            claddings.
+        theta: Angle amount of the bend.
+        theta_step: Angle amount per backbone point of the bend.
     """
-
     c = KCell()
     r = radius
     backbone = [
@@ -55,7 +57,7 @@ def bend_circular(
     c.create_port(
         name="o1",
         trans=kdb.Trans(2, False, 0, 0),
-        width=int(width / c.klib.dbu),
+        width=int(width / c.kcl.dbu),
         layer=layer,
     )
 
@@ -63,15 +65,15 @@ def bend_circular(
         case 90:
             c.create_port(
                 name="o2",
-                trans=kdb.DTrans(1, False, radius, radius).to_itype(c.klib.dbu),
-                width=int(width / c.klib.dbu),
+                trans=kdb.DTrans(1, False, radius, radius).to_itype(c.kcl.dbu),
+                width=int(width / c.kcl.dbu),
                 layer=layer,
             )
         case 180:
             c.create_port(
                 name="o2",
-                trans=kdb.DTrans(0, False, 0, 2 * radius).to_itype(c.klib.dbu),
-                width=int(width / c.klib.dbu),
+                trans=kdb.DTrans(0, False, 0, 2 * radius).to_itype(c.kcl.dbu),
+                width=int(width / c.kcl.dbu),
                 layer=layer,
             )
 

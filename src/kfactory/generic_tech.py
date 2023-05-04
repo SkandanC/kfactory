@@ -1,23 +1,20 @@
 """Technology settings."""
 from __future__ import annotations
 
-from enum import Enum
-from typing import Any, Dict, Iterator, List, Optional, Tuple
+from typing import Any
 
 from pydantic import BaseModel, Field
 
-from .kcell import KCell, KLib, LayerEnum, klib
-
-# from kfactory import KCell, KLib, library
+from .kcell import LayerEnum
 
 
 class LAYER(LayerEnum):
-    #     """Generic layermap based on book.
+    """Generic layermap based on book.
 
-    #     Lukas Chrostowski, Michael Hochberg, "Silicon Photonics Design",
-    #     Cambridge University Press 2015, page 353
-    #     You will need to create a new LayerMap with your specific foundry layers.
-    #     """
+    Lukas Chrostowski, Michael Hochberg, "Silicon Photonics Design",
+    Cambridge University Press 2015, page 353
+    You will need to create a new LayerMap with your specific foundry layers.
+    """
 
     WG = (1, 0)
     WAFER = (50, 0)
@@ -120,74 +117,11 @@ class LayerLevel(BaseModel):
             bias: in um for the etch.
     """
 
-    layer: Optional[Tuple[int, int]]
+    layer: tuple[int, int] | None
     thickness: float
-    thickness_tolerance: Optional[float] = None
+    thickness_tolerance: float | None = None
     zmin: float
-    material: Optional[str] = None
+    material: str | None = None
     sidewall_angle: float = 0
-    z_to_bias: Optional[Tuple[List[float], List[float]]] = None
-    info: Dict[str, Any] = {}
-
-class LayerStack(BaseModel):
-    """For simulation and 3D rendering.
-
-    Parameters:
-        layers: dict of layer_levels.
-    """
-
-    layers: Optional[Dict[str, LayerLevel]] = Field(default_factory=dict)
-
-    def __init__(self, **data: Any):
-        """Add LayerLevels automatically for subclassed LayerStacks."""
-        super().__init__(**data)
-
-        for field in self.dict():
-            val = getattr(self, field)
-            if isinstance(val, LayerLevel):
-                self.layers[field] = val
-
-    def get_layer_to_thickness(self) -> Dict[Tuple[int, int], float]:
-        """Returns layer tuple to thickness (um)."""
-        return {
-            level.layer: level.thickness
-            for level in self.layers.values()
-            if level.thickness
-        }
-
-    def get_layer_to_zmin(self) -> Dict[Tuple[int, int], float]:
-        """Returns layer tuple to z min position (um)."""
-        return {
-            level.layer: level.zmin for level in self.layers.values() if level.thickness
-        }
-
-    def get_layer_to_material(self) -> Dict[Tuple[int, int], str]:
-        """Returns layer tuple to material name."""
-        return {
-            level.layer: level.material
-            for level in self.layers.values()
-            if level.thickness
-        }
-
-    def get_layer_to_sidewall_angle(self) -> Dict[Tuple[int, int], str]:
-        """Returns layer tuple to material name."""
-        return {
-            level.layer: level.sidewall_angle
-            for level in self.layers.values()
-            if level.thickness
-        }
-
-    def get_layer_to_info(self) -> Dict[Tuple[int, int], Dict]:
-        """Returns layer tuple to info dict."""
-        return {level.layer: level.info for level in self.layers.values()}
-
-    def to_dict(self) -> Dict[str, Dict[str, Any]]:
-        return {level_name: dict(level) for level_name, level in self.layers.items()}
-
-    def __getitem__(self, key) -> LayerLevel:
-        """Access layer stack elements."""
-        if key not in self.layers:
-            layers = list(self.layers.keys())
-            raise ValueError(f"{key!r} not in {layers}")
-
-        return self.layers[key]
+    z_to_bias: tuple[list[float], list[float]] | None = None
+    info: dict[str, Any] = {}
