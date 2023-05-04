@@ -10,14 +10,14 @@ import pathlib
 import re
 import typing
 import xml.etree.ElementTree as ET
-from typing import Dict, Optional, Set, Tuple, Union
+from typing import Union
 
 import numpy as np
 from pydantic import BaseModel, Field, validator
 from pydantic.color import Color, ColorType
+from ruamel.yaml import YAML
 
 from kfactory.conf import logger
-from kfactory.kcell import clean_name
 from kfactory.technology.color_utils import ensure_six_digit_hex_color
 from kfactory.technology.xml_utils import make_pretty_xml
 from kfactory.technology.yaml_utils import (
@@ -29,9 +29,49 @@ from kfactory.technology.yaml_utils import (
 if typing.TYPE_CHECKING:
     from pydantic.typing import AbstractSetIntStr, DictStrAny, MappingIntStrAny
 
+
+def clean_name(name: str, remove_dots: bool = False) -> str:
+    """Return a string with correct characters for a cell name.
+
+    [a-zA-Z0-9]
+
+    FIXME: only a few characters are currently replaced.
+        This function has been updated only on case-by-case basis
+
+    """
+    replace_map = {
+        " ": "_",
+        "!": "",
+        "?": "",
+        "#": "_",
+        "%": "_",
+        "(": "",
+        ")": "",
+        "*": "_",
+        ",": "_",
+        "-": "m",
+        ".": "p",
+        "/": "_",
+        ":": "_",
+        "=": "",
+        "@": "_",
+        "[": "",
+        "]": "",
+        "{": "",
+        "}": "",
+        "$": "",
+    }
+
+    if remove_dots:
+        replace_map["."] = ""
+    for k, v in list(replace_map.items()):
+        name = name.replace(k, v)
+    return name
+
+
 PathLike = Union[pathlib.Path, str]
 
-Layer = Tuple[int, int]
+Layer = tuple[int, int]
 
 _klayout_line_styles = {
     "solid": "",
@@ -559,7 +599,6 @@ class LayerView(BaseModel):
         self, tag: str, name: str, custom_hatch_patterns: dict, custom_line_styles: dict
     ) -> ET.Element:
         """Get XML Element from attributes."""
-
         # If hatch pattern name matches a named (built-in) KLayout pattern, use 'I<idx>' notation
         hatch_name = getattr(self.hatch_pattern, "name", self.hatch_pattern)
         if hatch_name is None:
@@ -663,7 +702,6 @@ class LayerView(BaseModel):
             name: XML-formatted name entry.
             layer_pattern: Regex pattern to match layers with.
         """
-
         if not name:
             return None, None
 
@@ -983,7 +1021,6 @@ class LayerViews(BaseModel):
             overwrite: Whether to overwrite an existing file located at the filepath.
 
         """
-
         filepath = pathlib.Path(filepath)
         dirpath = filepath.parent
         dirpath.mkdir(exist_ok=True, parents=True)
@@ -1145,11 +1182,9 @@ class LayerViews(BaseModel):
         Args:
             layer_file: Name of the file to read LayerViews, CustomDitherPatterns, and CustomLineStyles from.
         """
-        from omegaconf import OmegaConf
-
         layer_file = pathlib.Path(layer_file)
+        properties = YAML.load(layer_file.open())
 
-        properties = OmegaConf.to_container(OmegaConf.load(layer_file.open()))
         lvs = {}
         for name, lv in properties["LayerViews"].items():
             if "group_members" in lv:
@@ -1194,7 +1229,6 @@ def _name_to_short_name(name_str: str) -> str:
         - key - description
 
     """
-
     if name_str is None:
         raise OSError(f"layer {name_str} has no name")
     fields = name_str.split("-")
@@ -1217,3 +1251,10 @@ def _name_to_description(name_str) -> str:
         raise OSError(f"layer {name_str!r} has no name")
     fields = name_str.split()
     return " ".join(fields[1:]) if len(fields) > 1 else ""
+
+
+# if __name__ == "__main__":
+#     from gdsfactory.config import PATH
+
+#     lys = LayerViews(PATH.klayout_lyp)
+#     assert len(lys.layer_views) > 10, len(lys.layer_views)
