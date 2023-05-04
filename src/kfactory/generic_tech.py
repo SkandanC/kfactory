@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from .kcell import LayerEnum
 
@@ -17,6 +17,7 @@ class LAYER(LayerEnum):
     """
 
     WG = (1, 0)
+    WAFER = (50, 0)
     WGCLAD = (111, 0)
     SLAB150 = (2, 0)
     SLAB90 = (3, 0)
